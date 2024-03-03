@@ -46,3 +46,13 @@ INSERT INTO login (usuario, passwrd) VALUES
 ('mainLake', 'root');
 
 SELECT * FROM login;
+
+CREATE TABLE mat_alum_prof (
+    idcns SERIAL PRIMARY KEY,
+    idalum INTEGER NOT NULL,
+    idmat INTEGER NOT NULL,
+    idmaes INTEGER NOT NULL,
+    Foreign Key (idalum) REFERENCES alumno(idalum),
+    Foreign Key (idmat) REFERENCES materia(idmat),
+    Foreign Key (idmaes) REFERENCES maestro(idmaes)
+);

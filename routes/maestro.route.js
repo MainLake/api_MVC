@@ -1,7 +1,10 @@
 const { Router } = require('express');
 const controller = require('../controllers/maestro.controller');
+const verifyAuth = require('../middlewares/auth.middleware');
 
 const router = Router();
+
+router.use(verifyAuth);
 
 router.get('/', controller.obtenerMestros);
 router.get('/:idMaestro', controller.obtenerMestro);
